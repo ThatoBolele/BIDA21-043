@@ -169,19 +169,19 @@ img{
     flex-direction: column;
     }
     .links ul>li{
-        display: block;
+        display: inline-block;
     }
     .links ul{
         padding: 30px;
     }
     .links>div{
-        position: absolute;
+        position: relative;
         background: red;
-        height: 90vh;
-        width: 300px;
+        height: 30vh;
+        width: 380px;
         top: 0;
         right: 0;
-        text-align: left;
+        text-align: center;
         z-index: 2;
         display: none;
     }
@@ -196,7 +196,7 @@ img{
         width: 80%;
     }
     .content>.movies>table>tbody>tr>th{
-        padding: 5px 80px;
+        padding: 5px 17px;
     }
     .movies>table>tbody>tr>th{
         padding: 5px 80px;
