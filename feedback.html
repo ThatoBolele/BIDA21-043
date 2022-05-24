@@ -106,7 +106,7 @@
                 }
             </script>
                 <div class="feedback">
-                    <form name="feedback" id="feedback"  method="post">
+                    <form name="feedback" id="feedback" action="Submitted.html" method="post" onsubmit="return ValidateFormData()">
                         <div class="input-group">
                             <label id="lab">User Name</label>
                             <input type="text" id="username" name="username" placeholder="Username" required="true" oninvalid="setCustomValidity('Please enter the username!!')" oninput="setCustomValidity('')" value="">
@@ -133,7 +133,7 @@
                         </div>
                         <button type="reset">RESET</button> 
                         <!--button ><a href="Submitted.html">SUBMIT</a></button-->
-                        <input type="submit"  id="btnsubmit" name="btnsubmit" value="Submit" onclick="ValidateFormData()"/>
+                        <input type="submit"  id="btnsubmit" name="btnsubmit" value="Submit" />
                     </form>
 
                 </div>
@@ -176,9 +176,6 @@
             //if data is missing show message box and return false to prevent form submission
             if (message!==""){
                 alert(message);
-            }else{
-                location.href="Submitted.html";
-                return true;
             }
             //return value
             return (message==="")?true:false;
