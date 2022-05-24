@@ -164,7 +164,7 @@
     </footer>
     <script>
         // this is to check oif all data was entered before submiting
-        function ValidateFormData() {alert(0);
+        function ValidateFormData() {
             var username= document.querySelector("#username").value??"";
             var email= document.querySelector("#email").value??"";
             var message="";
@@ -176,6 +176,9 @@
             //if data is missing show message box and return false to prevent form submission
             if (message!==""){
                 alert(message);
+            }else{
+                location.href="Submitted.html";
+                return true;
             }
             //return value
             return (message==="")?true:false;
