@@ -57,6 +57,14 @@
             background: red;
             transition: 0.5s;
            }
+           .main>#thank_you>.submit{
+                border: 2px solid white;
+                width: 50%;
+                position: static;
+                text-align: center;
+                font-size: 1.5em;
+                margin: auto;
+           }
         </style>
     </head>
     <body>
@@ -105,42 +113,80 @@
                     menu.style.display = "none";
                 }
             </script>
-                <div class="feedback">
-                    <form name="feedback" id="feedback" action="thankyou.html" method="post" onsubmit="return ValidateFormData()">
-                        <div class="input-group">
-                            <label id="lab">User Name</label>
-                            <input type="text" id="username" name="username" placeholder="Username" required="true" oninvalid="setCustomValidity('Please enter the username!!')" oninput="setCustomValidity('')" value="">
+            <div class="feedback">
+                <form name="feedback" id="feedback"  method="post">
+                    <div class="input-group">
+                        <label id="lab">User Name</label>
+                        <input type="text" id="username" name="username" placeholder="Username" required="true" oninvalid="setCustomValidity('Please enter the username!!')" oninput="setCustomValidity('')" value="">
+                    </div>
+                    <div class="input-group">
+                        <label id="lab">Email</label>
+                        <input type="email" id="email" name="email" placeholder="Email" required="true" oninvalid="setCustomValidity('Please enter the email!!')" oninput="setCustomValidity('')" value="">
+                    </div>
+                    <div class="input-group">
+                        <label style="font-size: 1.5em; text-decoration-line: underline;">Did you enjoy the website's experience</label><br>
+                        <label  for="reaction1">Fun and easy to use
+                            <input type="radio" id="reaction1" required name="reaction">
+                        </label>
+                        <label for="reaction2">Ok, usable
+                            <input type="radio" id="reaction2" required name="reaction">
+                        </label>
+                        <label for="reaction3">Horrible and difficult to use
+                            <input type="radio" id="reaction2" required name="reaction">
+                        </label>
                         </div>
-                        <div class="input-group">
-                            <label id="lab">Email</label>
-                            <input type="email" id="email" name="email" placeholder="Email" required="true" oninvalid="setCustomValidity('Please enter the email!!')" oninput="setCustomValidity('')" value="">
-                        </div>
-                        <div class="input-group">
-                            <label style="font-size: 1.5em; text-decoration-line: underline;">Did you enjoy the website's experience</label><br>
-                            <label  for="reaction1">Fun and easy to use
-                                <input type="radio" id="reaction1" required name="reaction">
-                            </label>
-                            <label for="reaction2">Ok, usable
-                                <input type="radio" id="reaction2" required name="reaction">
-                            </label>
-                            <label for="reaction3">Horrible and difficult to use
-                                <input type="radio" id="reaction2" required name="reaction">
-                            </label>
-                            </div>
-                        <div class="input-group">
-                            <label id="lab">Message</label>
-                            <textarea id="message"rows="8"></textarea>
-                        </div>
-                        <button type="reset">RESET</button> 
-                        <!--button ><a href="Submitted.html">SUBMIT</a></button-->
-                        <input type="submit"  id="btnsubmit" name="btnsubmit" value="Submit"/>
-                    </form>
-
+                    <div class="input-group">
+                        <label id="lab">Message</label>
+                        <textarea id="message"rows="8"></textarea>
+                    </div>
+                    <button type="reset">RESET</button> 
+                    <button id="submitB" type="submit" onclick="return ValidateFormData()">SUBMIT</button>
+                </form>
+            </div>
+            <div id="thank_you" style="display: none;">
+                <div class="submit">
+                    <h1>FEEDBACK SUBMITTED</h1>
+                    <br>
+                    <h1>THANK YOU FOR YOUR FEEDBACK</h1>
+                    <br>
                 </div>
+            </div>
+            <script>
+            var submitB = document.querySelector('#submitB');
+            
+            submitB.addEventListener('click', function (e) {
+                e.preventDefault();
+                // Hide first view
+                document.getElementById('feedback').style.display = 'none';
+            
+                // Show thank you message element
+                document.getElementById('thank_you').style.display = 'block';
+            });
+            </script>
         </div>      
     </body>
     <footer id="footer">
-       
+        <h1>END</h1>
+        <h3>Information</h2>
+        <div class="bottom">
+            <div class="info">
+                <h4>Contacts</h4>
+                <p>If you need any help or want to enquire about our services.<br> Please click on the button to access our contacts page.</p>
+                <br>
+                <br>
+                <a href="contacts.html" class="contacts">CONTACTS</a>
+                <br>
+                <br>           
+            </div>
+            <div class="info">
+                <h3>Feedback</h3>
+                <p>If you enjoyed your experience. <br> We would love to hear how you felt.<br> So please click on the button to access our feedback page and tell us about it.</p>
+                <br>
+                <a href="feedback.html" class="contacts">FEEDBACK</a>
+                <br>
+                <br>           
+            </div>
+        </div>
     </footer>
     <script>
         // this is to check oif all data was entered before submiting
@@ -160,5 +206,7 @@
             //return value
             return (message==="")?true:false;
         }
+        
     </script>
+
 </html>
