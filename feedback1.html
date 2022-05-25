@@ -114,7 +114,7 @@
                 }
             </script>
             <div class="feedback">
-                <form name="feedback" id="feedback"  method="post">
+                <form name="feedback" id="feedback" action="Submitted.html">
                     <div class="input-group">
                         <label id="lab">User Name</label>
                         <input type="text" id="username" name="username" placeholder="Username" required="true" oninvalid="setCustomValidity('Please enter the username!!')" oninput="setCustomValidity('')" value="">
@@ -140,29 +140,9 @@
                         <textarea id="message"rows="8"></textarea>
                     </div>
                     <button type="reset">RESET</button> 
-                    <button id="submitB" type="submit" onclick="return ValidateFormData()">SUBMIT</button>
+                    <button type="submit" ><a href="Submitted.html">SUBMIT</a></button>
                 </form>
             </div>
-            <div id="thank_you" style="display: none;">
-                <div class="submit">
-                    <h1>FEEDBACK SUBMITTED</h1>
-                    <br>
-                    <h1>THANK YOU FOR YOUR FEEDBACK</h1>
-                    <br>
-                </div>
-            </div>
-            <script>
-            var submitB = document.querySelector('#submitB');
-            
-            submitB.addEventListener('click', function (e) {
-                e.preventDefault();
-                // Hide first view
-                document.getElementById('feedback').style.display = 'none';
-            
-                // Show thank you message element
-                document.getElementById('thank_you').style.display = 'block';
-            });
-            </script>
         </div>      
     </body>
     <footer id="footer">
@@ -188,25 +168,4 @@
             </div>
         </div>
     </footer>
-    <script>
-        // this is to check oif all data was entered before submiting
-        function ValidateFormData() {
-            var username= document.querySelector("#username").value??"";
-            var email= document.querySelector("#email").value??"";
-            var message="";
-            if(username===""){
-                message="Please enter your username before proceeding";
-            }else if(email===""){
-                message="Please enter your email before proceeding";
-            }
-            //if data is missing show message box and return false to prevent form submission
-            if (message!==""){
-                alert(message);
-            }
-            //return value
-            return (message==="")?true:false;
-        }
-        
-    </script>
-
 </html>
